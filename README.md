@@ -46,4 +46,10 @@ Some data files are available in cosmoGW that are useful in some of the projects
 
 The work of the following publications can be reproduced using CosmoGW:
 
-* *Numerical Simulations of Gravitational Waves from Early-Universe Turbulence,* A. Roper Pol, S. Mandal, A. Brandenburg, T. Kahaniashvili, A. Kosowsky, *Phys. Rev. D* **102** (2020) 8, 083512, [arXiv:1903.08585](https://arxiv.org/abs/1903.08585). [Datasets] produced using Pencil Code are publicly available with [doi:10.5281/zenodo.3692072](https://zenodo.org/records/3692072).
+* *Numerical Simulations of Gravitational Waves from Early-Universe Turbulence,* A. Roper Pol, S. Mandal, A. Brandenburg, T. Kahaniashvili, A. Kosowsky, *Phys. Rev. D* **102** (2020) 8, 083512, [arXiv:1903.08585](https://arxiv.org/abs/1903.08585). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.3692072](https://zenodo.org/records/3692072). Direct access to Pencil Code files is also available in [brandenb/projects/GW/](http://norlx65.nordita.org/~brandenb/projects/GW/).
+  
+* *Polarization of gravitational waves from helical MHD turbulent sources,* A. Roper Pol, S. Mandal, A. Brandenburg, T. Kahniashvili, *J. Cosmol. Astropart. Phys.* **04** (2022) 04, 019, [arXiv:2107.05356](https://arxiv.org/abs/2107.05356). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.5525504](https://zenodo.org/records/5525504).
+  
+* *Gravitational wave signal from primordial magnetic fields in the Pulsar Timing Array frequency band,* A. Roper Pol, C. Caprini, A. Neronov, D. Semikoz, *Phys. Rev. D* **105** (2022) 12, 123502, [arXiv:2201.05630](https://arxiv.org/abs/2201.05630). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.5782752](https://zenodo.org/records/5782752).
+
+* *Modified propagation of gravitational waves from the early radiation era,* Y. He, A. Roper Pol, A. Brandenburg, *J. Cosmol. Astropart. Phys.* **06** (2023) 025, [arXiv:2212.06082](https://arxiv.org/abs/2212.06082). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.5525504](https://zenodo.org/records/5525504). Direct access to Pencil Code files is also available in [brandenb/projects/Horndeski/](http://norlx65.nordita.org/~brandenb/projects/Horndeski/).
