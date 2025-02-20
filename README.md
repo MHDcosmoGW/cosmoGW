@@ -41,3 +41,9 @@ Some data files are available in cosmoGW that are useful in some of the projects
 ## Projects
 
 * [**GWs_from_PTs**](projects/GWs_from_PTs): contains tutorials related to the production of GWs (self-similar profiles calculation for now, but more coming soon!)
+
+## Publications
+
+The work of the following publications can be reproduced using CosmoGW:
+
+* *Numerical Simulations of Gravitational Waves from Early-Universe Turbulence,* A. Roper Pol, S. Mandal, A. Brandenburg, T. Kahaniashvili, A. Kosowsky, *Phys. Rev. D* **102** (2020) 8, 083512, [arXiv:1903.08585](https://arxiv.org/abs/1903.08585). [Datasets] produced using Pencil Code are publicly available with [doi:10.5281/zenodo.3692072](https://zenodo.org/records/3692072).
