@@ -1,4 +1,4 @@
-# cosmoGW
+# CosmoGW
 
 * Author: Alberto Roper Pol (alberto.roperpol@unige.ch)
 * Created: 20/02/2025 (moved from [AlbertoRoper/cosmoGW](https://github.com/AlbertoRoper/cosmoGW) created on 19/07/2023, which is an extension of [AlbertoRoper/GW_turbulence](https://github.com/AlbertoRoper/GW_turbulence) from 01/11/2021)
