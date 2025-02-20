@@ -53,3 +53,9 @@ The work of the following publications can be reproduced using CosmoGW:
 * *Gravitational wave signal from primordial magnetic fields in the Pulsar Timing Array frequency band,* A. Roper Pol, C. Caprini, A. Neronov, D. Semikoz, *Phys. Rev. D* **105** (2022) 12, 123502, [arXiv:2201.05630](https://arxiv.org/abs/2201.05630). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.5782752](https://zenodo.org/records/5782752).
 
 * *Modified propagation of gravitational waves from the early radiation era,* Y. He, A. Roper Pol, A. Brandenburg, *J. Cosmol. Astropart. Phys.* **06** (2023) 025, [arXiv:2212.06082](https://arxiv.org/abs/2212.06082). Datasets produced using Pencil Code are publicly available at [doi:10.5281/zenodo.5525504](https://zenodo.org/records/5525504). Direct access to Pencil Code files is also available in [brandenb/projects/Horndeski/](http://norlx65.nordita.org/~brandenb/projects/Horndeski/).
+
+* *LISA and γ-ray telescopes as multi-messenger probes of a first-order cosmological phase transition,* A. Roper Pol, A. Neronov, C. Caprini, T. Boyer, D. Semikoz, *submitted to Astron. Astrophys.*, [arXiv:2307.10744](https://arxiv.org/abs/2307.10744).
+
+* *Characterization of the gravitational wave spectrum from sound waves within the sound shell model,* A. Roper Pol, S. Procacci, C. Caprini, *Phys. Rev. D* **109** (2024) 6, 063531, [arXiv:2308.12943](https://arxiv.org/abs/2308.12943).
+
+* *Gravitational waves from decaying sources in strong phase transitions,* A. Roper Pol, I. Stomberg, C. Caprini, R. Jinno, T. Konstandin, H. Rubira, *submitted to J. Cosmol. Astropart. Phys.*, [arXiv:2409.03651](https://arxiv.org/abs/2409.03651).
