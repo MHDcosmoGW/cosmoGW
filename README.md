@@ -7,7 +7,7 @@ CosmoGW (an extended update including [*GW_turbulence*](https://github.com/Alber
 
 The project includes state-of-the-art GW models developed by the community, postprocessing calculations, numerical computations, plotting routines, and detector sensitivities.
 
-If you use any of the cosmoGW results, please cite this repository ([https://zenodo.org/record/6045844](https://github.com/MHDcosmoGW/cosmoGW)) and the relevant reference/s listed in the routines, corresponding to the original published work. I would also love to hear about your interest for this project and your work, so consider reaching me out on my email: alberto.roperpol@unige.ch.
+If you use any of the cosmoGW results, please cite this [repository](https://github.com/MHDcosmoGW/cosmoGW) and the relevant reference/s listed in the routines, corresponding to the original published work. I would also love to hear about your interest for this project and your work, so consider reaching me out on my email: alberto.roperpol@unige.ch.
 
 If you have any issues, comments, suggestions, or you are just interested in discussing any of the presented results, you are more than welcome to contact me by email.
 
