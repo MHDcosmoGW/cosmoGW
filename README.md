@@ -1,7 +1,7 @@
 # cosmoGW
 
 * Author: Alberto Roper Pol (alberto.roperpol@unige.ch)
-* Created: 20/02/2025 (moved from AlbertoRoper/cosmoGW created on 19/07/2023, which is an extension of AlbertoRoper/GW_turbulence from 01/11/2021)
+* Created: 20/02/2025 (moved from [AlbertoRoper/cosmoGW](https://github.com/AlbertoRoper/cosmoGW) created on 19/07/2023, which is an extension of [AlbertoRoper/GW_turbulence](https://github.com/AlbertoRoper/GW_turbulence) from 01/11/2021)
   
 cosmoGW (an extended update including [*GW_turbulence*](https://github.com/AlbertoRoper/GW_turbulence)) is a project to produce results related to the production of COSMOlogical Gravitational Wave backgrounds (COSMOGW) from different sources in the early Universe (e.g., sound waves and MHD turbulence produced during cosmological phase transitions).
 
