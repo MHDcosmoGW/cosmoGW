@@ -5,9 +5,12 @@ for cosmological calculations, including a solver of Friedmann equations.
 Adapted from the original cosmology in GW_turbulence
 (https://github.com/AlbertoRoper/GW_turbulence)
 
+Currently part of the cosmoGW code:
+https://github.com/MHDcosmoGW/cosmoGW/src/cosmoGW/cosmology.py
+
 Author: Alberto Roper Pol
 Created: 27/11/2022 (GW_turbulence)
-Updated: 13/03/2025 (release cosmoGW 1.0)
+Updated: 13/03/2025 (release cosmoGW 1.0: https://pypi.org/project/cosmoGW)
 
 Main references are:
 
@@ -45,13 +48,14 @@ import astropy.constants as const
 import astropy.units as u
 import pandas as pd
 import numpy as np
+import importlib
 
-import cosmoGW.spectra as sp
+#import cosmoGW.spectra as sp
 
 # reference values and constants
 Tref = 100*u.GeV    # EWPT
 gref = 100          # EWPT
-Neff_ref = 3
+Neff_ref = 3        # reference Neff = 3
 
 # values at present time from Planck:2018vyg
 T0K = 2.72548*u.K
@@ -125,14 +129,14 @@ def Hs_fact():
 
     return fact
 
-def check_temperature_MeV(T):
+def check_temperature_MeV(T, func=''):
 
     try:
         T = T.to(u.MeV)
     except:
-        print('The input temperature needs to be given in energy units',
-              'using astropy.units, setting T to default value',
-              'T =', Tref)
+        print('The input temperature in ', func,
+              ' needs to be given in energy units using astropy.units \n'
+              ' setting T to default value T =', Tref)
         T = Tref.to(u.MeV)
 
     return T
@@ -156,7 +160,7 @@ def Hs_val(g=gref, T=Tref):
     """
 
     Hs_f = Hs_fact()
-    T = check_temperature_MeV(T)
+    T = check_temperature_MeV(T, func='Hs_val')
     Hs = Hs_f*T**2*np.sqrt(g)
 
     return Hs
@@ -171,6 +175,12 @@ def as_fact(Neff=Neff_ref):
     The factor is in units of MeV and the ratio is obtained by multiplying
     fact*g^(-1/3)/T, being g the number of dof and T the temperature scale
     (in MeV).
+
+    Arguments:
+        Neff -- effective number of neutrino species (default is 3)
+
+    Returns:
+        fact -- ratio to present-day scale factor, T0 g0s^(1/3)
 
     Reference: RoperPol:2022iel, eq. 28
     """
@@ -201,7 +211,7 @@ def as_a0_rat(g=gref, T=Tref, Neff=Neff_ref):
     """
 
     as_f = as_fact(Neff=Neff)
-    T = check_temperature_MeV(T)
+    T = check_temperature_MeV(T, func='as_a0_rat')
     as_a0 = as_f*g**(-1/3)/T
 
     return as_a0
@@ -226,23 +236,35 @@ def rho_radiation(g=gref, T=Tref):
     Reference: RoperPol:2019wvy, eq. 3
     """
 
-    T = check_temperature_MeV(T)
+    T = check_temperature_MeV(T, func='rho_radiation')
     rho_rad = np.pi**2/30*g*T**4/(const.hbar*const.c)**3
     rho_rad = rho_rad.to(u.GeV/u.m**3)
 
     return rho_rad
 
-def check_Hubble_Hz(H):
+def check_Hubble_Hz(H, func=''):
 
     try:
         H = H.to(u.Hz)
     except:
-        print('The input Hubble rate needs to be given in frequency units',
-              'using astropy.units, setting H to default value',
-              'H =', H0_ref)
-        H = H0_ref.to(u.Hz)
+        print('The input Hubble rate in ', func,
+              ' needs to be given in frequency units using astropy.units \n'
+              ' setting H to default value H =', H0_ref)
+        H = H0_ref
 
     return H
+
+def check_temperature_MeV(T, func=''):
+
+    try:
+        T = T.to(u.MeV)
+    except:
+        print('The input temperature in ', func,
+              ' needs to be given in energy units using astropy.units \n'
+              ' setting T to default value T =', Tref)
+        T = Tref.to(u.MeV)
+
+    return T
 
 def rho_critical(H=H0_ref):
 
@@ -259,7 +281,7 @@ def rho_critical(H=H0_ref):
     Reference: RoperPol:2019wvy, eq. 3
     """
 
-    H = check_Hubble_Hz(H)
+    H = check_Hubble_Hz(H, func='rho_critical')
     rho_c = 3*H**2*const.c**2/8/np.pi/const.G
     rho_c = rho_c.to(u.GeV/u.m**3)
 
@@ -275,7 +297,7 @@ def thermal_g(dir0='', T=Tref, s=0, file=True, Neff=Neff_ref):
 
     Arguments:
         dir0 -- directory where the file of dof is stored
-                ('cosmoGW/cosmology/' directory by default)
+                ('resources/cosmology/' directory by default)
         T -- temperature scale at the time of generation in energy units
              (default is 100 GeV)
         s -- option to return adiabatic (s=1) dof instead of relativistic
@@ -284,6 +306,7 @@ def thermal_g(dir0='', T=Tref, s=0, file=True, Neff=Neff_ref):
                 based on numerical calculations (default True)
                 It reads the file 'dir0/cosmology/T_gs.csv' and should be a
                 pandas file with columns: ['T [GeV]', 'g_*', 'gS']
+        Neff -- effective number of neutrino species (default is 3)
 
     Returns:
         g -- relativistic or adiabatic degrees of freedom
@@ -293,30 +316,42 @@ def thermal_g(dir0='', T=Tref, s=0, file=True, Neff=Neff_ref):
 
     # to make sure that the values at present time correspond to those at the
     # end of RD we take relativistic neutrinos
-    g0, g0s, _, _ = values_0(neut=True, Neff=Neff_ref)
+    g0, g0s, _, _ = values_0(neut=True, Neff=Neff)
 
     # read the file if it exists
     if file:
         try:
-            if dir0 == '': dir0 = 'cosmoGW/cosmology/'
-            df = pd.read_csv(dir0 + 'T_gs.csv')
+            dirr = dir0 + 'T_gs.csv'
+            if dir0 == '':
+                dirr = importlib.resources.open_binary('cosmoGW',
+                    'resources/cosmology/T_gs.csv')
+            df = pd.read_csv(dirr)
             Ts = np.array(df['T [GeV]'])
             if s == 0: gs = np.array(df['g_*'])
             if s == 1: gs = np.array(df['gS'])
             T = T.to(u.GeV)    # values of T from file are in GeV
             g = np.interp(T.value, np.sort(Ts), np.sort(gs))
+            T = check_temperature_MeV(T, func='thermal_g')
+            if not isinstance(T.value, (list, tuple, np.ndarray)):
+                if T.value < 0.1:
+                    if s == 0: g = g0
+                    if s == 1: g = g0s
+            else:
+                if s == 0: g[T.value < 0.1] = g0
+                if s == 1: g[T.value < 0.1] = g0s
+
         except:
             file = False
-            print('thermal_g reads the file %s/T_gs.csv, which does not exist!'%dir0)
+            print('thermal_g reads the file %sT_gs.csv, which does not exist! \n'%dir0)
             print('using piecewise approximated function to approximate g')
 
     # if a file is not given, one can use an approximate piecewise function
     if not file:
-        T = T.to(u.MeV)
+        T = check_temperature_MeV(T, func='thermal_g')
         T = T.value
         # check if T is an array or a single value
-        if isinstance(T, (list, tuple, np.ndarray)):
-            len_T = 1
+        if not isinstance(T, (list, tuple, np.ndarray)):
+            len_T = 1; T = [T]
         else: len_T = len(T)
         g = np.zeros(len_T)
         for i in range(0, len_T):

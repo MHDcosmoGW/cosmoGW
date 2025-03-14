@@ -4,3 +4,4 @@ dist
 src/cosmoGW.egg-info
 src/cosmoGW/cosmoGW.egg-info
 *.ipynb
+build

@@ -16,6 +16,7 @@ readme='README.md'
 dependencies = [
   "matplotlib",
   "numpy",
+  "importlib",
   "pandas",
   "astropy"
 ]
