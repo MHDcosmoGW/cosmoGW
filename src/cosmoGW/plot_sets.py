@@ -1,13 +1,19 @@
 """
-plot_sets.py is a Python routine that includes some of the settings used in the
-generation of plots for the cosmoGW project (see https://github.com/AlbertoRoper/cosmoGW).
+plot_sets.py is a Python routine that includes some of the settings used
+in the generation of plots for the cosmoGW project,
+see https://github.com/MHDcosmoGW/cosmoGW/
+
+Adapted from the original plot_sets in GW_turbulence
+(https://github.com/AlbertoRoper/GW_turbulence)
 
 Author: Alberto Roper Pol
-Created: 01/01/2021
-Updated: 01/11/2023 (release of the cosmoGW code)
+Created: 01/01/2021 (GW_turbulence)
+Updated: 13/03/2025 (release cosmoGW 1.0: https://pypi.org/project/cosmoGW)
 """
 
 import matplotlib.pyplot as plt
+
+# Some common settings for the general plots
 
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
@@ -32,3 +38,30 @@ def axes_lines(ax=[], both=True):
     if both:
         ax.yaxis.set_ticks_position('both')
         ax.xaxis.set_ticks_position('both')
+
+def save_fig(dirr='', name='fig', form='pdf', axes=True):
+
+    """
+    Function that saves the current plot as a PDF using the generic
+    settings described in axes_lines.
+
+    Arguments:
+        - dirr: directory where to save the figure (default is current dir)
+        - name: name of the figure (default is 'fig')
+        - form: format of the figure file (default is 'pdf')
+        - axes: option to call axes_lines for axes formatting
+                (default is True)
+    """
+
+    import os
+
+    if axes: axes_lines()
+    plts = dirr + 'plots/'
+    try:
+        os.mkdir(plts)
+    except:
+        print('Not possible to create directory', plts)
+
+    figg = name + '.' + form
+    print('Saving figure in', plts, figg)
+    plt.savefig(plts + figg, bbox_inches='tight')
