@@ -10,7 +10,7 @@ backgrounds from different sources in the early Universe, focusing on the
 production of GWs from sound waves and MHD turbulence from cosmological phase
 transitions.
 
-It corresponds to an extension of the original [*GW_turbulence*](https://github.com/AlbertoRoper/GW_turbulence))
+It corresponds to an extension of the original [*GW_turbulence*](https://github.com/AlbertoRoper/GW_turbulence)
 code previously used for calculations of GWs produced by MHD turbulence.
 
 * Author: Alberto Roper Pol (alberto.roperpol@unige.ch)
