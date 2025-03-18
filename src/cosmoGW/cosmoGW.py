@@ -6,7 +6,9 @@ Adapted from the original cosmoGW in GW_turbulence
 (https://github.com/AlbertoRoper/GW_turbulence)
 
 Currently part of the cosmoGW code:
-https://github.com/MHDcosmoGW/cosmoGW/src/cosmoGW/cosmology.py
+
+https://github.com/MHDcosmoGW/cosmoGW/
+https://github.com/MHDcosmoGW/cosmoGW/blob/development/src/cosmoGW/cosmoGW.py
 
 Author: Alberto Roper Pol
 Created: 01/12/2021 (GW_turbulence)
@@ -66,8 +68,6 @@ def fac_hc_OmGW(d=1, h0=1.):
     """
 
     # compute values at present day
-    #_, _, _, H0 = co.values_0(h0=h0)
-#    H0_ref = co.H0_ref
     fac = co.H0_ref*h0*np.sqrt(3/2)/np.pi
     if d == -1: fac = 1/fac**2
 

@@ -6,7 +6,9 @@ Adapted from the original cosmology in GW_turbulence
 (https://github.com/AlbertoRoper/GW_turbulence)
 
 Currently part of the cosmoGW code:
-https://github.com/MHDcosmoGW/cosmoGW/src/cosmoGW/cosmology.py
+
+https://github.com/MHDcosmoGW/cosmoGW/
+https://github.com/MHDcosmoGW/cosmoGW/blob/development/src/cosmoGW/cosmology.py
 
 Author: Alberto Roper Pol
 Created: 27/11/2022 (GW_turbulence)
