@@ -1,10 +1,14 @@
 """
 plot_sets.py is a Python routine that includes some of the settings used
-in the generation of plots for the cosmoGW project,
-see https://github.com/MHDcosmoGW/cosmoGW/
+in the generation of plots for the cosmoGW project.
 
 Adapted from the original plot_sets in GW_turbulence
 (https://github.com/AlbertoRoper/GW_turbulence)
+
+Currently part of the cosmoGW code:
+
+https://github.com/MHDcosmoGW/cosmoGW/
+https://github.com/MHDcosmoGW/cosmoGW/blob/development/src/cosmoGW/plot_sets.py
 
 Author: Alberto Roper Pol
 Created: 01/01/2021 (GW_turbulence)
